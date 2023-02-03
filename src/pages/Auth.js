@@ -42,8 +42,6 @@ const Auth = ({ setActive, setUser }) => {
         toast.success("logged in")
         setUser(user);
         
-      
-        
       } else {
         return toast.error("All fields are mandatory to fill");
       }
@@ -83,7 +81,7 @@ const Auth = ({ setActive, setUser }) => {
                   <div className="col-6 py-3">
                     <input
                       type="text"
-                      className="form-control input-text-box"
+                      className="form-control border border-primary"
                       placeholder="First Name"
                       name="firstName"
                       value={firstName}
@@ -93,7 +91,7 @@ const Auth = ({ setActive, setUser }) => {
                   <div className="col-6 py-3">
                     <input
                       type="text"
-                      className="form-control input-text-box"
+                      className="form-control border border-primary"
                       placeholder="Last Name"
                       name="lastName"
                       value={lastName}
@@ -105,7 +103,7 @@ const Auth = ({ setActive, setUser }) => {
               <div className="col-12 py-3">
                 <input
                   type="email"
-                  className="form-control input-text-box"
+                  className="form-control border border-primary"
                   placeholder="Email"
                   name="email"
                   value={email}
@@ -115,7 +113,7 @@ const Auth = ({ setActive, setUser }) => {
               <div className="col-12 py-3">
                 <input
                   type="password"
-                  className="form-control input-text-box"
+                  className="form-control border border-primary"
                   placeholder="Password"
                   name="password"
                   value={password}
@@ -126,7 +124,7 @@ const Auth = ({ setActive, setUser }) => {
                 <div className="col-12 py-3">
                   <input
                     type="password"
-                    className="form-control input-text-box"
+                    className="form-control border border-primary"
                     placeholder="Confirm Password"
                     name="confirmPassword"
                     value={confirmPassword}

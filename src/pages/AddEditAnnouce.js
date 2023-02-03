@@ -1,41 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import ReactTagInput from "@pathofdev/react-tag-input";
-// import "@pathofdev/react-tag-input/build/index.css";
-
-// const intialState = {
-//   title: "",
-//   tags: [],
-//   trending: "no",
-//   category: "",
-//   description: "",
-// };
-
-// const catergoryOption = [
-//   "fashion",
-//   "Technology",
-//   "Food",
-//   "Politics",
-//   "Sports",
-//   "Business",
-// ];
-// const AddEditBlog = () => {
-//   const [form, setForm] = useState(intialState);
-//   const [file, setFile] = useState(null);
-//   const { title, tags, category, trending, description } = form; //data destrucion to the form
-
-//   return (
-//     <div className="container-fluid mb-4">
-//       <div className="container">
-//         <div className="col-12">
-//           <div className="text-center heading py-2">Create Announce</div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AddEditBlog;
-
 import React, { useState, useEffect } from "react";
 import ReactTagInput from "@pathofdev/react-tag-input";
 import "@pathofdev/react-tag-input/build/index.css";
@@ -123,7 +85,7 @@ const AddEditBlog = ({ user, setActive }) => {
     id && getBlogDetail();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
-
+    //retrieve data to perform update 
   const getBlogDetail = async () => {
     const docRef = doc(db, "blogs", id);
     const snapshot = await getDoc(docRef);
@@ -172,7 +134,9 @@ const AddEditBlog = ({ user, setActive }) => {
             author: user.displayName,
             userId: user.uid,
           });
-          toast.success("Blog updated successfully");
+          toast.success("Success Notification !", {
+            position: toast.POSITION.TOP_CENTER
+          });
         } catch (err) {
           console.log(err);
         }
