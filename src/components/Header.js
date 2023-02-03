@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Nav } from "react-bootstrap";
+import transitions from "bootstrap";
 const Header = ({ active, setActive, user, handleLogout }) => {
   const userId = user?.uid;
   console.log("userId", userId);
@@ -9,7 +10,7 @@ const Header = ({ active, setActive, user, handleLogout }) => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container">
         <Link to="/" className="navbar-brand">
-          Annoucement app
+          Daily Posts App
         </Link>
         <button
           className="navbar-toggler"
@@ -39,9 +40,9 @@ const Header = ({ active, setActive, user, handleLogout }) => {
                 to="/create"
                 className="nav-link"
                 onClick={() => setActive("create")}
-                style={{ marginLeft: "20px" }}
+                style={{ marginLeft: "25px" }}
               >
-                Announcement
+                Manage Posts
               </Link>
             </li>
             <li className={`nav-item ${active === "about" ? "active" : ""}`}>

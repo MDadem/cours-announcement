@@ -15,7 +15,9 @@ import Auth from "./pages/Auth";
 import { auth } from "./firebase";
 import { signOut } from "firebase/auth";
 import Footer from "./components/Footer";
+import {ThreeDots} from "react-loader-spinner"
 function App() {
+  const [loading, setLoading] = useState(false);
   const [active, setActive] = useState("Home");
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -36,9 +38,29 @@ function App() {
       navigate("/auth");
     });
   };
-
+  useEffect(()=>{
+    setLoading(true);
+    setTimeout(()=>{
+    setLoading(false);
+    }, 3500)
+  }, [])
   return (
     <div className="App" style={{background: '#FFF2F2'}}>
+      {loading ? 
+      <div className="site-start">
+      <ThreeDots 
+      height="80" 
+      width="80" 
+      radius="9"
+      color="#4fa94d" 
+      ariaLabel="three-dots-loading"
+      wrapperStyle={{}}
+      wrapperClassName=""
+      visible={true}
+       />
+       </div>
+       : 
+       <>
       <Header
         setActive={setActive}
         active={active}
@@ -65,11 +87,13 @@ function App() {
           }
         />
         <Route path="/about" element={<About />} />
-        <Route path="/auth" element={<Auth setActive={setActive} />} />
+        <Route path="/auth" element={<Auth setActive={setActive} setUser={setUser} />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
      <Footer style={{background:'#93C6E7'}} />
+     </>
+        }
     </div>
   );
 }

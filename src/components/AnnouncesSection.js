@@ -1,12 +1,12 @@
 import React from "react";
-import FontAwesome from "react-fontawesome";
+import FontAwesomeIcon from "react-fontawesome";
 import { Link } from "react-router-dom";
 import { resize } from "../utility";
 const AnnouncesSection = ({ announces, user, handleDelete }) => {
   const userId = user?.uid;
   return (
     <div>
-      <div className="blog-heading text-start py-2 mb-4">Daily Courses</div>
+      <div className="blog-heading text-start py-2 mb-4">Daily Posts</div>
       {announces?.map((item) => (
         <div className="row pb-4" key={item.id}>
           <div className="col-md-5">
@@ -36,16 +36,20 @@ const AnnouncesSection = ({ announces, user, handleDelete }) => {
               <button className="btn btn-read">Read More</button>
             </Link>
             {/* allow only users mith matched id to delete the announce */}
-            {user?.uid && item.userId === user.uid && (
+            {userId && item.userId === userId && (
               <div style={{ float: "right" }}>
-                <FontAwesome
+                <FontAwesomeIcon
                   name="trash"
+
+                  icon="fa-thin fa-trash"
                   style={{ cursor: "pointer", margin: "15px" }}
                   size="2x"
                   onClick={() => handleDelete(item.id)}
                 />
                 <Link to={`/update/${item.id}`}>
-                  <FontAwesome
+                  
+                  <FontAwesomeIcon
+                    icon="fa-duotone fa-pen-to-square"
                     name="edit"
                     style={{ cursor: "pointer" }}
                     size="2x"

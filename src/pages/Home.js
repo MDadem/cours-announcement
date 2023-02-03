@@ -62,7 +62,7 @@ const Home = ({ setActive, user }) => {
       unsub();
       getTrendingAnnounces();
     };
-  }, []);
+  }, [setActive]);
   if (loading) {
     //set loading status for user before displaying the web page
     return <Spinner />;

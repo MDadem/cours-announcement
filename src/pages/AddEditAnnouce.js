@@ -20,20 +20,19 @@ const initialState = {
   trending: "no",
   category: "",
   description: "",
-  comments: [],
-  likes: []
+
 };
 
 const categoryOption = [
-  "Fashion",
-  "Technology",
-  "Food",
-  "Politics",
-  "Sports",
-  "Business",
+  "New Tech",
+  "High Tech",
+  "AI",
+  "IT",
+  "BI",
+  "EI",
 ];
 
-const AddEditBlog = ({ user, setActive }) => {
+const AddEditPost = ({ user, setActive }) => {
   const [form, setForm] = useState(initialState);
   const [file, setFile] = useState(null);
   const [progress, setProgress] = useState(null);
@@ -177,7 +176,7 @@ const AddEditBlog = ({ user, setActive }) => {
                 />
               </div>
               <div className="col-12 py-3">
-                <p className="trending">Is it trending blog ?</p>
+                <p className="trending">Valuable nowadays?</p>
                 <div className="form-check-inline mx-2">
                   <input
                     type="radio"
@@ -250,4 +249,4 @@ const AddEditBlog = ({ user, setActive }) => {
   );
 };
 
-export default AddEditBlog;
+export default AddEditPost;

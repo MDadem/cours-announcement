@@ -146,9 +146,10 @@ const Auth = ({ setActive, setUser }) => {
               {!signUp ? (
                 <>
                   <div className="text-center justify-content-center mt-2 pt-2">
-                    <p className="small fw-bold mt-2 pt-1 mb-0">
+                    <p className="small fw-bold mt-2 pt-1" style={{ marginBottom:"100px"}}>
                       Don't have an account ?&nbsp;
                       <span
+                        
                         className="link-danger"
                         style={{ textDecoration: "none", cursor: "pointer" }}
                         onClick={() => setSignUp(true)}
@@ -161,7 +162,7 @@ const Auth = ({ setActive, setUser }) => {
               ) : (
                 <>
                   <div className="text-center justify-content-center mt-2 pt-2">
-                    <p className="small fw-bold mt-2 pt-1 mb-0">
+                    <p className="small fw-bold mt-2 pt-1 " style={{marginBottom: "50px"}}>
                       Already have an account ?&nbsp;
                       <span
                         style={{
