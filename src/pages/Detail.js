@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -24,7 +23,7 @@ const Detail = ({ setActive }) => {
       );
       let tag = [];
       announces.docs.map((doc)=>tags.push(...doc.get('tags')))
-      let uniqueTags = [... new Set(tags)];
+      let uniqueTags = [...new Set(tags)];
       setTags(uniqueTags);
     };
     getAnnoucesData();
@@ -61,7 +60,7 @@ const Detail = ({ setActive }) => {
                 By <p className="author">{blog?.author}</p> - &nbsp;
                 {blog?.timestamp.toDate().toString()}
               </span>
-              <p className="text-start text-break">{blog?.description}</p>
+              <p className="text-start text-break" >{blog?.description}</p>
             </div>
             <div className="col-md-3">
               <Tags tags={tags}/>

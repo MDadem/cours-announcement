@@ -34,8 +34,9 @@ const Trending = ({announces}) => {
           <div className="item px-2" key={item.id}>
             <Link to={`/detail/${item.id}`}>
               <div className="trending-img-position">
-                <div className="trending-img-size">
+                <div className="trending-img-size" style={{ borderRadius:"10px"}}>
                   <img
+                 
                     className="trending-img-relative"
                     src={item.imgUrl}
                     alt={item.title}

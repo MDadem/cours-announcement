@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const initialState = {
   firstName: "",
@@ -19,7 +20,8 @@ const initialState = {
 const Auth = ({ setActive, setUser }) => {
   const [state, setState] = useState(initialState);
   const [signUp, setSignUp] = useState(false);
-
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const key = "6Le2PU8kAAAAAI3imjzVlzMOn6upDUVxKwRn-jM9";
   const { email, password, firstName, lastName, confirmPassword } = state;
 
   const navigate = useNavigate();
@@ -27,6 +29,10 @@ const Auth = ({ setActive, setUser }) => {
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
+   function onChange(value){
+    console.log("captcha value ", value)
+    setCaptchaVerified(true)
+  }
 
   const handleAuth = async (e) => {
     e.preventDefault();
@@ -37,11 +43,10 @@ const Auth = ({ setActive, setUser }) => {
           email,
           password
         );
-        navigate("/")
+        navigate("/");
         setActive("home");
-        toast.success("logged in")
+        toast.success("logged in");
         setUser(user);
-        
       } else {
         return toast.error("All fields are mandatory to fill");
       }
@@ -55,7 +60,7 @@ const Auth = ({ setActive, setUser }) => {
           email,
           password
         );
-        toast.success("new user created succesfuly")
+        toast.success("new user created succesfuly");
         await updateProfile(user, { displayName: `${firstName} ${lastName}` });
         setActive("home");
       } else {
@@ -64,8 +69,8 @@ const Auth = ({ setActive, setUser }) => {
     }
     navigate("/");
   };
-
   return (
+    
     <div className="container-fluid mb-4">
       <div className="container">
         <div className="col-12 text-center">
@@ -132,24 +137,31 @@ const Auth = ({ setActive, setUser }) => {
                   />
                 </div>
               )}
-
+             
               <div className="col-12 py-3 text-center">
-                <button
+              <ReCAPTCHA
+                data-theme="dark"
+                sitekey={key}
+                onChange={(onChange)}
+              />
+                { captchaVerified && <button
                   className={`btn ${!signUp ? "btn-sign-in" : "btn-sign-up"}`}
                   type="submit"
                 >
                   {!signUp ? "Sign-in" : "Sign-up"}
-                </button>
+                </button>}
               </div>
             </form>
             <div>
               {!signUp ? (
                 <>
                   <div className="text-center justify-content-center mt-2 pt-2">
-                    <p className="small fw-bold mt-2 pt-1" style={{ marginBottom:"100px"}}>
+                    <p
+                      className="small fw-bold mt-2 pt-1"
+                      style={{ marginBottom: "100px" }}
+                    >
                       Don't have an account ?&nbsp;
                       <span
-                        
                         className="link-danger"
                         style={{ textDecoration: "none", cursor: "pointer" }}
                         onClick={() => setSignUp(true)}
@@ -162,7 +174,10 @@ const Auth = ({ setActive, setUser }) => {
               ) : (
                 <>
                   <div className="text-center justify-content-center mt-2 pt-2">
-                    <p className="small fw-bold mt-2 pt-1 " style={{marginBottom: "50px"}}>
+                    <p
+                      className="small fw-bold mt-2 pt-1 "
+                      style={{ marginBottom: "50px" }}
+                    >
                       Already have an account ?&nbsp;
                       <span
                         style={{
