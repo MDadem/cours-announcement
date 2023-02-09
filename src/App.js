@@ -7,7 +7,6 @@ import {
   Routes,
   useNavigate,
   Navigate,
-  useLocation,
 } from "react-router-dom";
 import Detail from "./pages/Detail";
 import AddEditAnnouce from "./pages/AddEditAnnouce";

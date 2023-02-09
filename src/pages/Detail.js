@@ -21,7 +21,7 @@ const Detail = ({ setActive }) => {
           ...doc.data(),
         }))
       );
-      let tag = [];
+      // let tag = [];
       announces.docs.map((doc)=>tags.push(...doc.get('tags')))
       let uniqueTags = [...new Set(tags)];
       setTags(uniqueTags);
