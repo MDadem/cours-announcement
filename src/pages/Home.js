@@ -16,6 +16,7 @@ import Spinner from "../components/spinner";
 import Tags from "../components/tags";
 import Trending from "../components/Trending";
 import { db } from "../firebase";
+import ScrollToTop from "react-scroll-to-top";
 const Home = ({ setActive, user }) => {
   const [loading, setLoading] = useState(true);
   const [announces, setAnnounces] = useState([]);
@@ -100,6 +101,7 @@ const Home = ({ setActive, user }) => {
           </div>
         </div>
       </div>
+      <ScrollToTop smooth  color="lightblue"  />
     </div>
   );
 };

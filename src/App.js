@@ -61,9 +61,9 @@ function App() {
             wrapperClass=""
             visible={true}
             ariaLabel="three-circles-rotating"
-            outerCircleColor=""
-            innerCircleColor=""
-            middleCircleColor=""
+            outerCircleColor="blue"
+            innerCircleColor="green"
+            middleCircleColor="gold"
           />
         </div>
       ) : (

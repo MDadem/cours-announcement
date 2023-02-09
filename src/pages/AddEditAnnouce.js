@@ -4,6 +4,7 @@ import "@pathofdev/react-tag-input/build/index.css";
 import { db, storage } from "../firebase";
 import { useNavigate, useParams } from "react-router-dom";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import { ProgressBar } from "react-bootstrap";
 import {
   addDoc,
   collection,
@@ -20,17 +21,9 @@ const initialState = {
   trending: "no",
   category: "",
   description: "",
-
 };
 
-const categoryOption = [
-  "New Tech",
-  "High Tech",
-  "AI",
-  "IT",
-  "BI",
-  "EI",
-];
+const categoryOption = ["New Tech", "High Tech", "AI", "IT", "BI", "EI"];
 
 const AddEditPost = ({ user, setActive }) => {
   const [form, setForm] = useState(initialState);
@@ -50,8 +43,9 @@ const AddEditPost = ({ user, setActive }) => {
       uploadTask.on(
         "state_changed",
         (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
           console.log("Upload is " + progress + "% done");
           setProgress(progress);
           switch (snapshot.state) {
@@ -70,7 +64,7 @@ const AddEditPost = ({ user, setActive }) => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => {
-            toast.info("Image upload to firebase successfully");
+            toast.info("Image uploaded successfully");
             setForm((prev) => ({ ...prev, imgUrl: downloadUrl }));
           });
         }
@@ -84,7 +78,7 @@ const AddEditPost = ({ user, setActive }) => {
     id && getBlogDetail();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
-    //retrieve data to perform update 
+  //retrieve data to perform update
   const getBlogDetail = async () => {
     const docRef = doc(db, "blogs", id);
     const snapshot = await getDoc(docRef);
@@ -121,7 +115,7 @@ const AddEditPost = ({ user, setActive }) => {
             author: user.displayName,
             userId: user.uid,
           });
-          toast.success("Blog created successfully");
+          toast.success("Post created successfully");
         } catch (err) {
           console.log(err);
         }
@@ -134,7 +128,7 @@ const AddEditPost = ({ user, setActive }) => {
             userId: user.uid,
           });
           toast.success("Success Notification !", {
-            position: toast.POSITION.TOP_CENTER
+            position: toast.POSITION.TOP_CENTER,
           });
         } catch (err) {
           console.log(err);
@@ -155,6 +149,7 @@ const AddEditPost = ({ user, setActive }) => {
             {id ? "Update Your own Post" : "Create New Post"}
           </div>
         </div>
+
         <div className="row h-100 justify-content-center align-items-center">
           <div className="col-10 col-md-8 col-lg-6">
             <form className="row blog-form" onSubmit={handleSubmit}>
@@ -230,6 +225,14 @@ const AddEditPost = ({ user, setActive }) => {
                   type="file"
                   className="form-control"
                   onChange={(e) => setFile(e.target.files[0])}
+                />
+                <ProgressBar
+                  animated
+                  style={{ marginTop: "10px" }}
+                  now={progress}
+                  label={`${progress}%`}
+                  srOnly
+                  variant="info"
                 />
               </div>
               <div className="col-12 py-3 text-center">
