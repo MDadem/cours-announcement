@@ -26,7 +26,7 @@ const About = () => {
             </div>
             <div class="col-lg-6 mt-5 mb-0 mt-lg-0">
                 <figure class="potoaboutwrap">
-                    <img src="https://media.sproutsocial.com/uploads/2022/04/Best-times-to-post-2022_BTTP-Social-Media.jpg"width={800} height={600} style={{borderRadius:"6px"}} alt="potoabout" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ322y5cp_L60d7_wAiK5hYDSIloUiFI9rvzA&usqp=CAU"width="90%" height="80%" style={{borderRadius:"6px"}} alt="potoabout" />
                 </figure>
             </div>
         </div>

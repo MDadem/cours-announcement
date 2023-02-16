@@ -9,7 +9,6 @@ import {
   Navigate,
 } from "react-router-dom";
 import Detail from "./pages/Detail";
-import AddEditAnnouce from "./pages/AddEditAnnouce";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import "./style.scss";
@@ -21,6 +20,8 @@ import { auth } from "./firebase";
 import { signOut } from "firebase/auth";
 import Footer from "./components/Footer";
 import { ThreeCircles } from "react-loader-spinner";
+import AddEditPost from "./pages/AddEditPost";
+
 function App() {
   const [loading, setLoading] = useState(false);
   const [active, setActive] = useState("Home");
@@ -89,13 +90,13 @@ function App() {
             <Route
               path="/create"
               element={
-                user?.uid ? <AddEditAnnouce user={user} /> : <Navigate to="/" />
+                user?.uid ? <AddEditPost user={user} /> : <Navigate to="/" />
               }
             />
             <Route
               path="/update/:id"
               element={
-                user?.uid ? <AddEditAnnouce user={user} /> : <Navigate to="/" />
+                user?.uid ? <AddEditPost user={user} /> : <Navigate to="/" />
               }
             />
             <Route path="/about" element={<About />} />
