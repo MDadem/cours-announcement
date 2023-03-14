@@ -70,12 +70,12 @@ const Home = ({ setActive, user }) => {
   }
 
   const handleDelete = async (id) => {
-    if (window.confirm("Are you sure wanted to delete this announce ?")) {
+    if (window.confirm("Are you sure that you want to delete this Post ?")) {
       try {
         setLoading(true);
         await deleteDoc(doc(db, "blogs", id));
         setLoading(false);
-        toast.success("Annouce deleted succesfully ");
+        toast.success("Post deleted succesfully ");
       } catch (error) {
         console.log(error);
       }

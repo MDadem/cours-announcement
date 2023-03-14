@@ -127,7 +127,7 @@ const AddEditPost = ({ user, setActive }) => {
             author: user.displayName,
             userId: user.uid,
           });
-          toast.success("Success Notification !", {
+          toast.success("Post Updated successfully !", {
             position: toast.POSITION.TOP_CENTER,
           });
         } catch (err) {

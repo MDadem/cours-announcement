@@ -43,8 +43,6 @@ $yellow:#f5bc04;
 
 
 
-// Header
-
 .navbar-light .navbar-nav .open > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.open, .navbar-light .navbar-nav .nav-link.active {
 	color: #fff!important;
 	padding-top: 12px!important;
@@ -92,7 +90,6 @@ $yellow:#f5bc04;
  cursor: pointer;   
 }
 
-// form
 .heading {
     font-size: 20px;
 	color: #424040;
@@ -174,7 +171,6 @@ $yellow:#f5bc04;
       margin: auto;
   }
 
-//   Blog Section
 
 .blog-heading {
 	font-size: 24px;
@@ -269,7 +265,6 @@ $yellow:#f5bc04;
 	font-size: 14px;
 }
 
-// Detail
 
 .blog-title-box {
     width: 38.2%;
@@ -341,13 +336,11 @@ $yellow:#f5bc04;
 	}
 }
 
-// Home
 .spinner {
 	width: 3rem;
 	height: 3rem;
 }
 
-// Tags
 
 .tags > a {
     text-decoration: none;
@@ -369,7 +362,6 @@ $yellow:#f5bc04;
 	text-decoration: none;
 }
 
-// Most popular
 
 .most-popular-img {
     height: 80px;
@@ -385,7 +377,6 @@ $yellow:#f5bc04;
 	color: #777;
 }
 
-// Trending
 .trending-img-position {
 	position: relative;
 	overflow: hidden;
@@ -490,7 +481,6 @@ $yellow:#f5bc04;
 }
 }
 
-// search
 .form-inline {
 	display: flex;
 	align-items: center;
@@ -501,7 +491,6 @@ $yellow:#f5bc04;
 	float: left;
 }
 
-// Category
 .widget {
 	position: relative;
     display: block;
@@ -531,7 +520,6 @@ $yellow:#f5bc04;
     right: 0;
 }
 
-// Scroll
 .scroll-to-top {
 	position: fixed;
 	bottom: 20px;
@@ -556,13 +544,12 @@ $yellow:#f5bc04;
 	}
   }
 
-//   Card
+
 .related-content {
 	border-radius: 20px;
 	cursor: pointer;
   }
 
-// Comment
 
 .custombox {
 	position: relative;

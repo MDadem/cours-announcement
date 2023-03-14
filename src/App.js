@@ -61,9 +61,9 @@ function App() {
             wrapperClass=""
             visible={true}
             ariaLabel="three-circles-rotating"
-            outerCircleColor="blue"
-            innerCircleColor="green"
-            middleCircleColor="gold"
+            outerCircleColor=""
+            innerCircleColor=""
+            middleCircleColor=""
           />
         </div>
       ) : (
@@ -105,6 +105,7 @@ function App() {
               element={<Auth setActive={setActive} setUser={setUser} />}
             />
             <Route path="*" element={<NotFound />} />
+            {/* <Route path="/testNav" element={<Header2 />} /> */}
           </Routes>
           <Footer style={{ background: "#93C6E7" }} />
         </>
